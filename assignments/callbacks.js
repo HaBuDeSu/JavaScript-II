@@ -89,11 +89,18 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
   let nodups = [];
-  for (i=0; i<array.length-1; i++) {
-    if (array.sort()[i] != array.sort()[i+1]) {
-      nodups.push(array.sort()[i])
+  let dups = array.map(item => item);
+  for (i=0; i<dups.length-1; i++) {
+    if (dups.sort()[i] != dups.sort()[i+1]) {
+      nodups.push(dups.sort()[i])
     }
   }
-  nodups.push(array.sort()[array.length-1]);
+  nodups.push(dups.sort()[array.length-1]);
   return cb(nodups);
 }
+
+let names = ["Ken", "Karen", "Emily", "Ken"];
+removeDuplicates(names, function(print) {
+  console.log(print);
+})
+console.log(names);
