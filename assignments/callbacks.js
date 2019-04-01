@@ -88,4 +88,12 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  let nodups = [];
+  for (i=0; i<array.length-1; i++) {
+    if (array.sort()[i] != array.sort()[i+1]) {
+      nodups.push(array.sort()[i])
+    }
+  }
+  nodups.push(array.sort()[array.length-1]);
+  return cb(nodups);
 }
