@@ -1,6 +1,14 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
 
+function intro(x) {
+  return function name(y) {
+    return x+y;
+  }
+}
+
+const hello = intro("Hi my name is ");
+hello("Ken Ruf");
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
